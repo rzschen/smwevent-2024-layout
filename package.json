@@ -25,26 +25,38 @@
         "name": "runnerName",
         "title": "Runner Name",
         "width": 2,
-        "file": "runner/runner.html",
+        "file": "runner/index.html",
         "headerColor": "#525F78"
       },
       {
         "name": "timer",
         "title": "Timer",
         "width": 2,
-        "file": "timer/timer.html",
+        "file": "timer/index.html",
         "headerColor": "#525F78"
       }
     ],
     "graphics": [
       {
-        "file": "food/layout.html",
+        "file": "layout/5way.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "layout/4way.html",
         "width": 1920,
         "height": 1080,
         "singleInstance": false
       },
       {
         "file": "timer/timer.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "waiting/index.html",
         "width": 1920,
         "height": 1080,
         "singleInstance": false
@@ -63,5 +75,8 @@
       "last 1 safari version"
     ]
   },
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "dependencies": {
+    "hacktimer": "^1.1.3"
+  }
 }
