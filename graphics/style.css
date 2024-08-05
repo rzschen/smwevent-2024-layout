@@ -1,0 +1,58 @@
+@font-face {
+  font-family: myFirstFont;
+  src: URL('./assets/font.ttf') format('truetype');
+}
+
+body {
+  width: 1920px;
+  height: 1080px;
+  font-family: myFirstFont;
+  font-size: 48px;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke: 4px;
+}
+
+.bg {
+  width: 1920px;
+  height: 1080px;
+  position: absolute;
+}
+
+
+.name {
+  width: 100%;
+  left: 0px;
+}
+
+#runner-1 {
+  text-align: center;
+  position: absolute;
+  top: 445px;
+}
+
+#runner-2 {
+  text-align: center;
+  position: absolute;
+  top: 445px;
+  left: 630px;
+}
+
+#runner-3 {
+  text-align: center;
+  position: absolute;
+  top: 970px;
+  left: -630px;
+}
+
+#runner-4 {
+  text-align: center;
+  position: absolute;
+  top: 970px;
+}
+
+#runner-5 {
+  text-align: center;
+  position: absolute;
+  top: 970px;
+  left: 630px;
+}
