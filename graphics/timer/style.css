@@ -1,0 +1,13 @@
+@font-face {
+  font-family: myFirstFont;
+  src: URL('../assets/font.ttf') format('truetype');
+}
+
+body {
+  text-align: left;
+  font-family: myFirstFont;
+  font-size: 48px;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke: 4px;
+  background-color: darkslategray;
+}

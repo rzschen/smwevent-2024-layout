@@ -27,11 +27,24 @@
         "width": 2,
         "file": "runner/runner.html",
         "headerColor": "#525F78"
+      },
+      {
+        "name": "timer",
+        "title": "Timer",
+        "width": 2,
+        "file": "timer/timer.html",
+        "headerColor": "#525F78"
       }
     ],
     "graphics": [
       {
-        "file": "food/food_5way.html",
+        "file": "food/layout.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "timer/timer.html",
         "width": 1920,
         "height": 1080,
         "singleInstance": false

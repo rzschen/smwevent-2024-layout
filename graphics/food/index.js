@@ -21,3 +21,7 @@ nodecg.Replicant('runner-4').on('change', (newVal) => {
 nodecg.Replicant('runner-5').on('change', (newVal) => {
   document.getElementById('runnerName-5').textContent = newVal;
 })
+
+nodecg.Replicant("timer").on("change", (newValue, oldValue) => {
+  document.getElementById("timer").innerText = newValue;
+});
