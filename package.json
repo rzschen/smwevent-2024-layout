@@ -25,13 +25,13 @@
         "name": "runnerName",
         "title": "Runner Name",
         "width": 2,
-        "file": "runner.html",
+        "file": "runner/runner.html",
         "headerColor": "#525F78"
       }
     ],
     "graphics": [
       {
-        "file": "index.html",
+        "file": "food/food_5way.html",
         "width": 1920,
         "height": 1080,
         "singleInstance": false
