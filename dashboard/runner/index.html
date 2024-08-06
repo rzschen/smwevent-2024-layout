@@ -6,20 +6,56 @@
 			.monospace {
 				font-family: monospace;
 			}
+
+			.row {
+				font-size: 20px;
+				position: relative;
+				line-height: 30px;
+			}
+
+			button:hover {
+        opacity: 0.5;
+      }
+
+      button {
+        width: 75px;
+        height: 45px;
+        border: none;
+        font-weight: bold;
+
+				color: white;
+
+        text-align: center;
+				font-size: 25px;
+      }
+
+			#updateRunnerNameBtn {
+				background-color: rgb(0, 151, 0);
+			}
 		</style>
 	</head>
 	<body>
 		<div id="root">
-			<label for="runner_name">走者名 1</label>
-			<input type="text" id="runnerName-1" /><br>
-			<label for="runner_name">走者名 2</label>
-			<input type="text" id="runnerName-2" /><br>
-			<label for="runner_name">走者名 3</label>
-			<input type="text" id="runnerName-3" /><br>
-			<label for="runner_name">走者名 4</label>
-			<input type="text" id="runnerName-4" /><br>
-			<label for="runner_name">走者名 5</label>
-			<input type="text" id="runnerName-5" /><br>
+			<div class="row">
+				<label for="runner_name">走者名 1</label>
+				<input type="text" id="runnerName-1" /><br>
+			</div>
+			<div class="row">
+				<label for="runner_name">走者名 2</label>
+				<input type="text" id="runnerName-2" /><br>
+			</div>
+			<div class="row">
+				<label for="runner_name">走者名 3</label>
+				<input type="text" id="runnerName-3" /><br>
+			</div>
+			<div class="row">
+				<label for="runner_name">走者名 4</label>
+				<input type="text" id="runnerName-4" /><br>
+			</div>
+			<div class="row">
+				<label for="runner_name">走者名 5</label>
+				<input type="text" id="runnerName-5" /><br>
+			</div>
 			<button id="updateRunnerNameBtn">更新</button>
 		</div>
 		<script type="module" src="./panel.js"></script>

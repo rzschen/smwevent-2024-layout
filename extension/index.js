@@ -1,11 +1,5 @@
 module.exports = function (nodecg) {
-	nodecg.log.info("Hello, from your bundle's extension!");
-	nodecg.log.info("I'm where you put all your server-side code.");
-	nodecg.log.info(`To edit me, open "${__filename}" in your favorite text editor or IDE.`);
-	nodecg.log.info('You can use any libraries, frameworks, and tools you want. There are no limits.');
-	nodecg.log.info('Visit https://nodecg.dev for full documentation.');
-	nodecg.log.info('Good luck!');
-
+// Initialize Replicants	
 	const timerReplicant = nodecg.Replicant("timer", {
 		defaultValue: "00:00:00",
 		persistent: false
@@ -17,7 +11,7 @@ module.exports = function (nodecg) {
 	})
 
 	const isTimerPausedRep = nodecg.Replicant("isTimerPaused", {
-		defaultValue: true,
+		defaultValue: false,
 		persistent: false
 	})
 
@@ -29,6 +23,7 @@ module.exports = function (nodecg) {
 	// Initialize timer variables
 	let milliseconds = 0;
 	let timer;
+	
 
 	function startTimer() {
 		// isPaused Replicant
@@ -51,13 +46,16 @@ module.exports = function (nodecg) {
 
 	function pauseTimer() {
 		clearInterval(timer);
+		// Initialize Replicants' value
 		isTimerStartedRep.value = false;
+		isTimerPausedRep.value = false;
 	}
 
 	function resetTimer() {
 		clearInterval(timer);
 		milliseconds = 0;
 		timerReplicant.value = "00:00:00";
+		// Initialize Replicants' value
 		isTimerStartedRep.value = false;
 		isTimerResetedRep.value = false;
 	}

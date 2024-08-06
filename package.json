@@ -23,15 +23,15 @@
     "dashboardPanels": [
       {
         "name": "runnerName",
-        "title": "Runner Name",
-        "width": 2,
+        "title": "プレイヤーパネル",
+        "width": 3,
         "file": "runner/index.html",
         "headerColor": "#525F78"
       },
       {
         "name": "timer",
-        "title": "Timer",
-        "width": 2,
+        "title": "タイマー",
+        "width": 3,
         "file": "timer/index.html",
         "headerColor": "#525F78"
       }

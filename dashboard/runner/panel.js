@@ -1,7 +1,3 @@
-// You can access the NodeCG api anytime from the `window.nodecg` object
-// Or just `nodecg` for short. Like this!:
-nodecg.log.info("Here's an example of using NodeCG's logging API!");
-
 document.getElementById('updateRunnerNameBtn').addEventListener('click', () => {
   const runnerName_1 = document.getElementById('runnerName-1').value;
   const runnerName_2 = document.getElementById('runnerName-2').value;
