@@ -1,9 +1,5 @@
-nodecg.Replicant("timer").on("change", (newValue, oldValue) => {
-  document.getElementById("timer").innerText = newValue;
-});
+const timerReplicant = nodecg.Replicant("timer");
 
-nodecg.Replicant("timerflag").on("change", (newValue, oldValue) => {
-  if (newValue = true) {
-    console.log("Started")
-  }
+timerReplicant.on("change", (newValue) => {
+  document.getElementById("timer").innerText = newValue;
 });
