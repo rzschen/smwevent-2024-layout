@@ -1,57 +1,32 @@
 const watch = document.querySelector('#watch');
-let milliseconds = 0;
-let timer;
-let isTimerStarted;
 
-const timerReplicant = nodecg.Replicant("timer", {
-  defaultValue: "00:00:00"
-});
+// NodeCG Replicants
+const timerReplicant = nodecg.Replicant("timer");
+const isTimerStartedRep = nodecg.Replicant("isTimerStarted")
+const isTimerPausedRep = nodecg.Replicant("isTimerPaused")
+const isTimerReseted = nodecg.Replicant("isTimerReseted")
 
-const isTimerStartedReplicant = nodecg.Replicant("timerflag");
-
-function updateIsTimerStarted(bool) {
-  isTimerStarted = bool;
-  console.log(isTimerStarted)
-  isTimerStartedReplicant.value = isTimerStarted;
-}
-
-function startWatch() {
-  watch.classList.remove('paused');
-  clearInterval(timer);
-  timer = setInterval(()=>{ 
-    milliseconds += 10;
-    let dateTimer = new Date(milliseconds);
-
-    let stopwatchCombine = 
-    ('0'+dateTimer.getUTCHours()).slice(-2) + ':' +
-    ('0'+dateTimer.getUTCMinutes()).slice(-2) + ':' +
-    ('0'+dateTimer.getUTCSeconds()).slice(-2)
-
-    watch.innerHTML = stopwatchCombine;
-
-    const timerValue = stopwatchCombine;
-    timerReplicant.value = timerValue;
-  },10);
+function startTimerButton() {
+  isTimerStartedRep.value = true;
 };
 
-function pauseWatch() {
-  watch.classList.add('paused');
-  clearInterval(timer);
-  timerReplicant.value = timerValue;
+function pauseTimerButton() {
+  isTimerPausedRep.value = true;
 };
 
-function resetWatch() {
-  watch.classList.remove('paused');
-  clearInterval(timer);
-  milliseconds = 0;
-  watch.innerHTML= '00:00:00';
-  timerReplicant.value = '00:00:00';
-  updateIsTimerStarted(false)
+function resetTimerButton() {
+  isTimerReseted.value = true;
 };
 
+// Detect button clicks
 document.addEventListener('click', (e) =>{
   const el = e.target;
-  if (el.id === 'start') startWatch(), updateIsTimerStarted(true);
-  if (el.id === 'pause') pauseWatch();
-  if (el.id === 'reset') resetWatch();
+  if (el.id === 'start') startTimerButton();
+  if (el.id === 'pause') pauseTimerButton();
+  if (el.id === 'reset') resetTimerButton();
 });
+
+// Draw timer for every changes on timerReplicant's value
+timerReplicant.on("change", (newValue) => {
+  watch.innerHTML = newValue;
+})
