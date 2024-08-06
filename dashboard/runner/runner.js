@@ -62,11 +62,7 @@ updateTime('timeP2', 'finish-2', 'completeTimeP2')
 updateTime('timeP3', 'finish-3', 'completeTimeP3')
 updateTime('timeP4', 'finish-4', 'completeTimeP4')
 updateTime('timeP5', 'finish-5', 'completeTimeP5')
-updateAndFinishAll('timeP1', 'finishAll-1',)
-updateAndFinishAll('timeP2', 'finishAll-2',)
-updateAndFinishAll('timeP3', 'finishAll-3',)
-updateAndFinishAll('timeP4', 'finishAll-4',)
-updateAndFinishAll('timeP5', 'finishAll-5',)
+updateAndFinishAll('timeP1', 'finishAll',)
 undoTime('timeP1', 'undo-1', 'completeTimeP1')
 undoTime('timeP2', 'undo-2', 'completeTimeP2')
 undoTime('timeP3', 'undo-3', 'completeTimeP3')
@@ -77,6 +73,7 @@ document.getElementById('undoAll').addEventListener('click', () => {
 })
 
 
+// If timer was resetted, then undo everything.
 isTimerResettedRep.on("change", (newValue) => {
   if (newValue === true) {
     undoAll()
