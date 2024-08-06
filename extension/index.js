@@ -20,6 +20,16 @@ module.exports = function (nodecg) {
 		persistent: false
 	})
 
+	const countPlayerRep = nodecg.Replicant("countPlayer", {
+		defaultValue: 0,
+		persistent: false
+	})
+
+	const countFinishedRep = nodecg.Replicant("countFinished", {
+		defaultValue: 0,
+		persistent: false
+	})
+
 	// Initialize timer variables
 	let milliseconds = 0;
 	let timer;
@@ -42,6 +52,7 @@ module.exports = function (nodecg) {
     ('0'+dateTimer.getUTCSeconds()).slice(-2)
     timerReplicant.value = combinedDigits;
  	 	},10);
+		nodecg.log.info("[FEATURE ALERT]:  TIMER IS STARTED.");
 	};
 
 	function pauseTimer() {
@@ -49,6 +60,7 @@ module.exports = function (nodecg) {
 		// Initialize Replicants' value
 		isTimerStartedRep.value = false;
 		isTimerPausedRep.value = false;
+		nodecg.log.info("[FEATURE ALERT]:  TIMER IS PAUSED.");
 	}
 
 	function resetTimer() {
@@ -58,27 +70,38 @@ module.exports = function (nodecg) {
 		// Initialize Replicants' value
 		isTimerStartedRep.value = false;
 		isTimerResettedRep.value = false;
+		nodecg.log.info("[FEATURE ALERT]:  TIMER IS RESETTED.");
 	}
 
 // Start timer when Start button has clicked.
 	isTimerStartedRep.on("change", (newValue) => {
 		if (newValue === true) {
 			startTimer();
-			nodecg.log.info("[FEATURE ALERT]:  TIMER IS STARTED.");
 		}
 	})
 
 	isTimerPausedRep.on("change", (newValue) => {
 		if (newValue === true) {
 			pauseTimer();
-			nodecg.log.info("[FEATURE ALERT]:  TIMER IS PAUSED.");
 		}
 	})
 
 	isTimerResettedRep.on("change", (newValue) => {
 		if (newValue === true) {
 			resetTimer();
-			nodecg.log.info("[FEATURE ALERT]:  TIMER IS RESETTED.")
+			countFinishedRep.value = 0;
+		}
+	})
+
+	countPlayerRep.on("change", (newValue) => {
+		countPlayerRep.value = newValue;
+	})
+
+	countFinishedRep.on("change", (newValue) => {
+		nodecg.log.info("Finished count: " + countFinishedRep.value)
+		
+		if (countFinishedRep.value === countPlayerRep.value) {
+			isTimerPausedRep.value = true;
 		}
 	})
 

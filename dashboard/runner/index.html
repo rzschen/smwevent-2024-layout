@@ -19,7 +19,7 @@
 
       button {
         width: 120px;
-        height: 45px;
+        height: 35px;
         border: none;
         font-weight: bold;
 
@@ -36,13 +36,6 @@
 				background-color: lightseagreen;
 			}
 
-			.finishAll {
-				width: 300px;
-				height: 35px;
-
-				background-color: rgb(0, 102, 255);
-			}
-
 			.undo {
 				width: 100px;
 				height: 35px;
@@ -55,6 +48,7 @@
 			}
 
 			#updateRunnerNameBtn {
+				width: 150px;
 				background-color: rgb(0, 151, 0);
 			}
 		</style>
@@ -97,9 +91,9 @@
 				<button class="undo" id="undo-5">Undo</button>
 				<p id="completeTimeP5"></p>
 			</div><br>
-			<button class="finishAll" id="finishAll">Finish with Main Timer</button>
-			<button class="undo" id="undoAll">Undo All</button>
+			<button class="undo" id="undoAll">Undo All</button><br>
 			<button id="updateRunnerNameBtn">名前更新</button>
+			<input id="playerCount" type="checkbox" name="player" value="4" checked>4-Player
 		</div>
 	</body>
 </html>

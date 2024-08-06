@@ -1,12 +1,15 @@
 // CompletionTime Replicant
 const timerReplicant = nodecg.Replicant("timer");
-const isTimerPausedRep = nodecg.Replicant("isTimerPaused")
-const isTimerResettedRep = nodecg.Replicant("isTimerResetted")
+const isTimerPausedRep = nodecg.Replicant("isTimerPaused");
+const isTimerResettedRep = nodecg.Replicant("isTimerResetted");
+const countFinishedRep = nodecg.Replicant("countFinished");
+const countPlayerRep = nodecg.Replicant("countPlayer");
 
 
 function updateTime(ReplicantName, buttonId, textId) {
   document.getElementById(buttonId).addEventListener('click', () => {
     nodecg.Replicant(ReplicantName).value = timerReplicant.value;
+    countFinishedRep.value += 1;
   })
   
   nodecg.Replicant(ReplicantName).on('change', (time) => {
@@ -19,18 +22,11 @@ function updateTime(ReplicantName, buttonId, textId) {
 }
 
 
-function updateAndFinishAll(ReplicantName, buttonId) {
-  document.getElementById(buttonId).addEventListener('click', () => {
-    nodecg.Replicant(ReplicantName).value = timerReplicant.value;
-    isTimerPausedRep.value = true;
-  })
-}
-
-
 // Undo run completion
 function undoTime(ReplicantName, buttonId, textId) {
   document.getElementById(buttonId).addEventListener('click', () => {
     nodecg.Replicant(ReplicantName).value = "";
+    countFinishedRep.value -= 1;
   })
 
   nodecg.Replicant(ReplicantName).on('change', (time) => {
@@ -54,6 +50,7 @@ function undoAll() {
     undoProc('timeP3', 'completeTimeP3');
     undoProc('timeP4', 'completeTimeP4');
     undoProc('timeP5', 'completeTimeP5');
+    countFinishedRep.value = 0;
 }
 
 
@@ -62,7 +59,6 @@ updateTime('timeP2', 'finish-2', 'completeTimeP2')
 updateTime('timeP3', 'finish-3', 'completeTimeP3')
 updateTime('timeP4', 'finish-4', 'completeTimeP4')
 updateTime('timeP5', 'finish-5', 'completeTimeP5')
-updateAndFinishAll('timeP1', 'finishAll',)
 undoTime('timeP1', 'undo-1', 'completeTimeP1')
 undoTime('timeP2', 'undo-2', 'completeTimeP2')
 undoTime('timeP3', 'undo-3', 'completeTimeP3')
@@ -77,6 +73,18 @@ document.getElementById('undoAll').addEventListener('click', () => {
 isTimerResettedRep.on("change", (newValue) => {
   if (newValue === true) {
     undoAll()
+  }
+})
+
+
+// Player count
+const playerCountElem = document.getElementById("playerCount");
+
+playerCountElem.addEventListener('change', () => {
+  if (playerCountElem.checked === true) {
+    countPlayerRep.value = 4;
+  } else {
+    countPlayerRep.value = 5;
   }
 })
 
