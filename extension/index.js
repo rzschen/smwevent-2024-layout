@@ -15,7 +15,7 @@ module.exports = function (nodecg) {
 		persistent: false
 	})
 
-	const isTimerResetedRep = nodecg.Replicant("isTimerReseted", {
+	const isTimerResettedRep = nodecg.Replicant("isTimerResetted", {
 		defaultValue: false,
 		persistent: false
 	})
@@ -57,7 +57,7 @@ module.exports = function (nodecg) {
 		timerReplicant.value = "00:00:00";
 		// Initialize Replicants' value
 		isTimerStartedRep.value = false;
-		isTimerResetedRep.value = false;
+		isTimerResettedRep.value = false;
 	}
 
 // Start timer when Start button has clicked.
@@ -75,10 +75,10 @@ module.exports = function (nodecg) {
 		}
 	})
 
-	isTimerResetedRep.on("change", (newValue) => {
+	isTimerResettedRep.on("change", (newValue) => {
 		if (newValue === true) {
 			resetTimer();
-			nodecg.log.info("[FEATURE ALERT]:  TIMER IS RESETED.")
+			nodecg.log.info("[FEATURE ALERT]:  TIMER IS RESETTED.")
 		}
 	})
 

@@ -1,7 +1,7 @@
 // NodeCG Replicants
 const timerReplicant = nodecg.Replicant("timer");
 const isTimerPausedRep = nodecg.Replicant("isTimerPaused")
-const isTimerResetedRep = nodecg.Replicant("isTimerReseted")
+const isTimerResettedRep = nodecg.Replicant("isTimerResetted")
 
 
 // Draw timer value via timerReplicant
@@ -9,7 +9,7 @@ timerReplicant.on("change", (newValue) => {
   document.getElementById("timer").innerText = newValue;
 });
 
-isTimerResetedRep.on("change", (newValue) => {
+isTimerResettedRep.on("change", (newValue) => {
   if (newValue === true) {
     document.getElementById("timer").classList.remove("paused")
   }
