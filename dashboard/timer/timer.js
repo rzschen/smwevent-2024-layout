@@ -7,33 +7,38 @@ const isTimerPausedRep = nodecg.Replicant("isTimerPaused")
 const isTimerResettedRep = nodecg.Replicant("isTimerResetted")
 
 
-// Update replicants' state
-function startTimerButton() {
-  isTimerStartedRep.value = true;
-  timerElem.classList.remove("paused")
-  timerElem.classList.add("onGoing")
-};
-
-function pauseTimerButton() {
-  isTimerPausedRep.value = true;
-  timerElem.classList.add("paused")
-};
-
-function resetTimerButton() {
-  isTimerResettedRep.value = true;
-  timerElem.classList.remove("onGoing")
-  timerElem.classList.remove("paused")
-};
-
-// Detect button clicks
+// Update timer state replicants on button click.
 document.addEventListener('click', (e) =>{
   const el = e.target;
-  if (el.id === 'start') startTimerButton();
-  if (el.id === 'pause') pauseTimerButton();
-  if (el.id === 'reset') resetTimerButton();
+  if (el.id === 'start') isTimerStartedRep.value = true;
+  if (el.id === 'pause') isTimerPausedRep.value = true;
+  if (el.id === 'reset') isTimerResettedRep.value = true;
 });
+
 
 // Draw timer value via timerReplicant
 timerReplicant.on("change", (newValue) => {
   document.getElementById("timer").innerText = newValue;
+})
+
+
+// Timer state replicants
+isTimerStartedRep.on("change", (newValue) => {
+  if (newValue === true) {
+    timerElem.classList.remove("paused")
+    timerElem.classList.add("onGoing")
+  }
+})
+
+isTimerPausedRep.on("change", (newValue) => {
+  if (newValue === true) {
+    timerElem.classList.add("paused") 
+  }
+})
+
+isTimerResettedRep.on("change", (newValue) => {
+  if (newValue === true) {
+    timerElem.classList.remove("onGoing")
+    timerElem.classList.remove("paused")
+  }
 })
