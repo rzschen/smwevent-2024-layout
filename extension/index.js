@@ -21,7 +21,7 @@ module.exports = function (nodecg) {
 	})
 
 	const countPlayerRep = nodecg.Replicant("countPlayer", {
-		defaultValue: 0,
+		defaultValue: 4,
 		persistent: false
 	})
 
@@ -98,9 +98,9 @@ module.exports = function (nodecg) {
 	})
 
 	countFinishedRep.on("change", (newValue) => {
-		nodecg.log.info("Finished count: " + countFinishedRep.value)
+		nodecg.log.info("Finished count: " + newValue)
 		
-		if (countFinishedRep.value === countPlayerRep.value) {
+		if (newValue === countPlayerRep.value) {
 			isTimerPausedRep.value = true;
 		}
 	})
