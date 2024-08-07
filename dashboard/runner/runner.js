@@ -50,6 +50,7 @@ function undoAll() {
     undoProc('timeP3', 'completeTimeP3');
     undoProc('timeP4', 'completeTimeP4');
     undoProc('timeP5', 'completeTimeP5');
+    isTimerResettedRep.value = true;
     countFinishedRep.value = 0;
 }
 
