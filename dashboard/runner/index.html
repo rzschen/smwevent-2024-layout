@@ -18,8 +18,8 @@
       }
 
       button {
-        width: 75px;
-        height: 45px;
+        width: 120px;
+        height: 35px;
         border: none;
         font-weight: bold;
 
@@ -29,35 +29,71 @@
 				font-size: 25px;
       }
 
+			.finish {
+				width: 100px;
+				height: 35px;
+
+				background-color: lightseagreen;
+			}
+
+			.undo {
+				width: 100px;
+				height: 35px;
+
+				background-color: rgb(178, 132, 32);
+			}
+
+			#undoAll {
+				width: 250px;
+			}
+
 			#updateRunnerNameBtn {
+				width: 150px;
 				background-color: rgb(0, 151, 0);
 			}
 		</style>
+		<script type="module" src="./runner.js"></script>
 	</head>
 	<body>
 		<div id="root">
 			<div class="row">
 				<label for="runner_name">走者名 1</label>
 				<input type="text" id="runnerName-1" /><br>
+				<button class="finish" id="finish-1">Finish</button>
+				<button class="undo" id="undo-1">Undo</button>
+				<p id="completeTimeP1"></p>
 			</div>
 			<div class="row">
 				<label for="runner_name">走者名 2</label>
 				<input type="text" id="runnerName-2" /><br>
+				<button class="finish" id="finish-2">Finish</button>
+				<button class="undo" id="undo-2">Undo</button>
+				<p id="completeTimeP2"></p>
 			</div>
 			<div class="row">
 				<label for="runner_name">走者名 3</label>
 				<input type="text" id="runnerName-3" /><br>
+				<button class="finish" id="finish-3">Finish</button>
+				<button class="undo" id="undo-3">Undo</button>
+				<p id="completeTimeP3"></p>
 			</div>
 			<div class="row">
 				<label for="runner_name">走者名 4</label>
 				<input type="text" id="runnerName-4" /><br>
+				<button class="finish" id="finish-4">Finish</button>
+				<button class="undo" id="undo-4">Undo</button>
+				<p id="completeTimeP4"></p>
 			</div>
 			<div class="row">
 				<label for="runner_name">走者名 5</label>
 				<input type="text" id="runnerName-5" /><br>
-			</div>
-			<button id="updateRunnerNameBtn">更新</button>
+				<button class="finish" id="finish-5">Finish</button>
+				<button class="undo" id="undo-5">Undo</button>
+				<p id="completeTimeP5"></p>
+			</div><br>
+			<button class="undo" id="undoAll">Undo All & Reset</button><br>
+			<button id="updateRunnerNameBtn">名前更新</button>
+			<input id="playerCount" type="checkbox" name="player" value="4" checked>4-Player
 		</div>
-		<script type="module" src="./panel.js"></script>
 	</body>
 </html>

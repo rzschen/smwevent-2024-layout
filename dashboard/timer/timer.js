@@ -4,7 +4,7 @@ const timerElem = document.getElementById("timer")
 const timerReplicant = nodecg.Replicant("timer");
 const isTimerStartedRep = nodecg.Replicant("isTimerStarted")
 const isTimerPausedRep = nodecg.Replicant("isTimerPaused")
-const isTimerResetedRep = nodecg.Replicant("isTimerReseted")
+const isTimerResettedRep = nodecg.Replicant("isTimerResetted")
 
 
 // Update replicants' state
@@ -20,7 +20,7 @@ function pauseTimerButton() {
 };
 
 function resetTimerButton() {
-  isTimerResetedRep.value = true;
+  isTimerResettedRep.value = true;
   timerElem.classList.remove("onGoing")
   timerElem.classList.remove("paused")
 };
