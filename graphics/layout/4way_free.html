@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/4way.css">
+		<script type="module" src="./index.js"></script>
+	</head>
+	<body>
+		<img class="bg" src="../assets/bg.png" width="1920px" height="1080px">
+		<div id="component-left">
+			<img id="banner" src="../assets/logo.png">
+			<img id="logo" src="../assets/logo_free.png">
+			<div class="border" id="webcam"></div>
+			<div class="border" id="commentator-container">
+				<img id="voice" src="../assets/microphone.svg">
+				<div class="name" id="commentator-name"></div>
+			</div>
+		</div>
+		<div class="gameRegion" id="game-topleft"></div>
+		<div class="gameRegion" id="game-topright"></div>
+		<div class="gameRegion" id="game-bottomleft"></div>
+		<div class="gameRegion" id="game-bottomright"></div>
+		<div>
+			<p id="timer">00:00:00</p>
+			<p class="name" id="runner-1">
+				<span id="runnerName-1"></span>
+			</p>
+			<p class="name" id="runner-2">
+				<span id="runnerName-2"></span>
+			</p>
+			<p class="name" id="runner-3">
+				<span id="runnerName-3"></span>
+			</p>
+			<p class="name" id="runner-4">
+				<span id="runnerName-4"></span>
+			</p>
+		</div>
+		<div class="completeTime" id="timeP1"></div>
+		<div class="completeTime" id="timeP2"></div>
+		<div class="completeTime" id="timeP3"></div>
+		<div class="completeTime" id="timeP4"></div>
+	</body>
+</html>

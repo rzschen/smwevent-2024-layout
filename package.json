@@ -51,7 +51,19 @@
         "singleInstance": false
       },
       {
+        "file": "layout/5way_free.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
         "file": "layout/4way.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "layout/4way_free.html",
         "width": 1920,
         "height": 1080,
         "singleInstance": false
@@ -63,7 +75,13 @@
         "singleInstance": false
       },
       {
-        "file": "waiting/index.html",
+        "file": "waiting/food.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "waiting/beginner.html",
         "width": 1920,
         "height": 1080,
         "singleInstance": false
