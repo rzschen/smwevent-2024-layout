@@ -81,14 +81,17 @@ isTimerResettedRep.on("change", (newValue) => {
 // Player count
 const playerCountElem = document.getElementById("playerCount");
 
-playerCountElem.addEventListener('change', () => {
-  if (playerCountElem.checked === true) {
+window.addEventListener("load", function(){
+  countPlayerRep.value = 5;
+})
+
+playerCountElem.addEventListener('click', () => {
+  if (playerCountElem.checked == true) {
     countPlayerRep.value = 4;
-  } else {
+  } else{
     countPlayerRep.value = 5;
   }
 })
-
 
 // Update runner name.
 document.getElementById('updateRunnerNameBtn').addEventListener('click', () => {
