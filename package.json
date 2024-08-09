@@ -34,6 +34,13 @@
         "width": 3,
         "file": "timer/index.html",
         "headerColor": "#525F78"
+      },
+      {
+        "name": "commentator",
+        "title": "実況解説",
+        "width": 2,
+        "file": "commentator/index.html",
+        "headerColor": "#525F78"
       }
     ],
     "graphics": [

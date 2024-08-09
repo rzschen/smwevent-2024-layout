@@ -1,0 +1,83 @@
+@font-face {
+  font-family: myFirstFont;
+  src: URL('../../assets/font.ttf') format('truetype');
+}
+
+:root {
+  --key-color: #000000
+}
+
+body {
+  width: 1920px;
+  height: 1080px;
+  font-family: myFirstFont;
+  font-size: 48px;
+  margin: 0;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke: 4px;
+}
+
+.bg {
+  z-index: 0;
+  width: 1920px;
+  height: 1080px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.border {
+  position: absolute;
+  border-radius: 15px;
+  z-index: 1;
+  outline: solid 5px #FFF;
+  outline-offset: -5px;
+}
+
+#voice {
+  position:absolute;
+  top: -365px;
+  left: -360px;
+  transform: scale(0.05);
+  filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(323deg) brightness(106%) contrast(102%);
+  z-index: 1;
+}
+
+.paused {
+  -webkit-text-fill-color: rgb(255, 243, 71);
+}
+
+.name {
+  width: 100%;
+  left: 0px;
+  text-align: center;
+  position: absolute;
+  filter: drop-shadow(1px 1px 1px #272727);
+}
+
+#commentator-name {
+  font-size: 38px;
+  top: 15px;
+  filter: drop-shadow(0px #27272700);
+  -webkit-text-stroke: 3px;
+}
+
+.completeTime {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 64px;
+  text-align: center;
+  position: absolute;
+  -webkit-text-stroke: 0px;
+  -webkit-text-fill-color: gold;
+  filter: drop-shadow(6px 6px 6px rgba(0,0,0, 0.8));
+  z-index: 2;
+}
+
+.gameRegion {
+  width: 600px;
+  aspect-ratio: 4 / 3;
+  background-color: var(--key-color);
+  z-index: 1;
+}
