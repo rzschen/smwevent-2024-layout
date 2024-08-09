@@ -11,6 +11,14 @@ fetchRunnerName('runner-3', 'runnerName-3')
 fetchRunnerName('runner-4', 'runnerName-4')
 fetchRunnerName('runner-5', 'runnerName-5')
 
+
+// Commentator name Replicant
+const commentatorNameReplicant = nodecg.Replicant("commentatorName")
+
+commentatorNameReplicant.on("change", (newValue) => {
+  document.getElementById("commentator-name").textContent = newValue;
+})
+
 // Timer Replicants
 const timerReplicant = nodecg.Replicant("timer");
 const isTimerPausedRep = nodecg.Replicant("isTimerPaused")

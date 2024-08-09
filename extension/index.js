@@ -1,5 +1,9 @@
 module.exports = function (nodecg) {
 // Initialize Replicants	
+	const commentatorNameReplicant = nodecg.Replicant("commentatorName", {
+		defaultValue: "Commentator"
+	})
+
 	const timerReplicant = nodecg.Replicant("timer", {
 		defaultValue: "00:00:00",
 		persistent: false
@@ -105,6 +109,10 @@ module.exports = function (nodecg) {
 		if (newValue === countPlayerRep.value) {
 			isTimerPausedRep.value = true;
 		}
+	})
+
+	commentatorNameReplicant.on("change", (newValue) => {
+		nodecg.log.info("[COMMENTATOR UPDATE]: " + newValue)
 	})
 
 };
