@@ -3,21 +3,63 @@
 	<head>
 		<meta charset="UTF-8" />
 		<style>
-			.monospace {
-				font-family: monospace;
-			}
+      .button-container {
+        text-align: center;
+        margin: 10px;
+      }
+
+      button:hover {
+        opacity: 0.5;
+      }
+
+      .button {
+        width: 90px;
+        height: 45px;
+        border: none;
+
+        color: white;
+        font-weight: bold;
+
+        text-align: center;
+        font-size: 1.1em;
+      }
+
+      #start {
+        background-color: darkgreen;
+      }
+
+      #pause {
+        background-color: darkred;
+      }
+
+      #reset {
+        background-color: rgb(29, 29, 29);
+      }
+
+      #timer {
+        text-align: center;
+        font-family: monospace;  
+        font-weight: bold;
+        font-size: 64px;
+      }
+
+      .onGoing {
+        color: greenyellow;
+      }
+
+      .paused {
+        color: #3fd2ff;
+      }
+
 		</style>
-    <script type="text" src="../../node_modules/hacktimer/HackTimer.js"></script>
     <script type="module" src="./timer.js"></script>
 	</head>
 	<body>
-    <div class="watch">
-      <h1 id="watch">00:00:00</h2>
-    </div>
-    <div class="buttons">
-      <button id="start">Start</button>
-      <button id="pause">Pause</button>
-      <button id="reset">Reset</button>
-    </div>
+    <div id="timer"></div>
+      <div class="button-container">
+        <button class="button" id="start">Start</button>        
+        <button class="button" id="pause">Pause</button>
+        <button class="button" id="reset">Reset</button>
+      </div>
 	</body>
 </html>

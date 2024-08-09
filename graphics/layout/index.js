@@ -1,27 +1,57 @@
-// You can access the NodeCG api anytime from the `window.nodecg` object
-// Or just `nodecg` for short. Like this!:
-nodecg.log.info("Here's an example of using NodeCG's logging API!");
+// Name Replicant
+function fetchRunnerName(ReplicantName, ElementId) {
+  nodecg.Replicant(ReplicantName).on('change', (newVal) => {
+    document.getElementById(ElementId).textContent = newVal;
+  })
+}
 
-nodecg.Replicant('runner-1').on('change', (newVal) => {
-  document.getElementById('runnerName-1').textContent = newVal;
+fetchRunnerName('runner-1', 'runnerName-1')
+fetchRunnerName('runner-2', 'runnerName-2')
+fetchRunnerName('runner-3', 'runnerName-3')
+fetchRunnerName('runner-4', 'runnerName-4')
+fetchRunnerName('runner-5', 'runnerName-5')
+
+
+// Commentator name Replicant
+const commentatorNameReplicant = nodecg.Replicant("commentatorName")
+
+commentatorNameReplicant.on("change", (newValue) => {
+  document.getElementById("commentator-name").textContent = newValue;
 })
 
-nodecg.Replicant('runner-2').on('change', (newVal) => {
-  document.getElementById('runnerName-2').textContent = newVal;
-})
+// Timer Replicants
+const timerReplicant = nodecg.Replicant("timer");
+const isTimerPausedRep = nodecg.Replicant("isTimerPaused")
+const isTimerResettedRep = nodecg.Replicant("isTimerResetted")
 
-nodecg.Replicant('runner-3').on('change', (newVal) => {
-  document.getElementById('runnerName-3').textContent = newVal;
-})
-
-nodecg.Replicant('runner-4').on('change', (newVal) => {
-  document.getElementById('runnerName-4').textContent = newVal;
-})
-
-nodecg.Replicant('runner-5').on('change', (newVal) => {
-  document.getElementById('runnerName-5').textContent = newVal;
-})
-
-nodecg.Replicant("timer").on("change", (newValue, oldValue) => {
+// Draw timer value via timerReplicant
+timerReplicant.on("change", (newValue) => {
   document.getElementById("timer").innerText = newValue;
 });
+
+// Apply paused class when timer is pause
+isTimerPausedRep.on("change", (newValue) => {
+  if (newValue === true) {
+    document.getElementById("timer").classList.add("paused")
+  }
+})
+
+// Remove paused class when timer is resetted.
+isTimerResettedRep.on("change", (newValue) => {
+  if (newValue === true) {
+    document.getElementById("timer").classList.remove("paused")
+  }
+})
+
+// Complete Time Replicant
+function completeTimeDraw(ReplicantName, ElementId) {
+  nodecg.Replicant(ReplicantName).on('change', (newVal) => {
+    document.getElementById(ElementId).textContent = newVal;
+  })
+}
+
+completeTimeDraw('timeP1', 'timeP1')
+completeTimeDraw('timeP2', 'timeP2')
+completeTimeDraw('timeP3', 'timeP3')
+completeTimeDraw('timeP4', 'timeP4')
+completeTimeDraw('timeP5', 'timeP5')
